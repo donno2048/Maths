@@ -11,13 +11,16 @@ def process(color: str):
     elif color == "black": return 'k-'
     elif color == "white": return 'w-'
     else: return "-"
-def main(Input: str, Text = "", LineColor = "", TextColor = "white", start = 0, end = 10, step = .001):
+def main(Input, Text = "", LineColor = "", TextColor = "white", start = 0, end = 10, step = .001, required = []):
+    if required:
+        for r in required: exec("import " + r, globals())
     color = process(LineColor)
     def animate(ii):
         global x
         x = ii * step
         i.append(x)
-        y.append(eval(Input))
+        if callable(Input): y.append(Input(x))
+        else: y.append(eval(Input))
         plot(i, y, color)
     fig.text(0.05, 0.95, Text, bbox = dict(facecolor = TextColor, alpha = 0.5))
     anim = FuncAnimation(fig, animate, range(int(start / step), int(end / step)))
