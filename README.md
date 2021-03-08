@@ -4,6 +4,7 @@ Use it like so:
 
 ```py
 from init import main
+from math import cos
 main("sum([cos(3 ** n * x / 1000) / (3 ** n) for n in range(10)])", Text = r"$\sum_{n=0}^\infty\frac{\cos\left(3^nx\right)}{3^n}$ Is continuous but not differentiable in any point", LineColor = "blue", TextColor = "blue", start = 0, end = 10, step = .001)
 ```
 
