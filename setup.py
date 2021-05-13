@@ -10,5 +10,5 @@ setup(
     license='MIT',
     author='Elisha Hollander',
     classifiers=['Programming Language :: Python :: 3'],
-    install_requires=['matplotlib']
+    install_requires=['matplotlib==3.4.2']
 )
