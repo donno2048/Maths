@@ -23,5 +23,6 @@ def main(Input, Text = "", LineColor = "", TextColor = "white", start = 0, end =
         else: y.append(eval(Input))
         plot(i, y, color)
     fig.text(0.05, 0.95, Text, bbox = dict(facecolor = TextColor, alpha = 0.5))
-    FuncAnimation(fig, animate, range(int(start / step), int(end / step)))
+    anim = FuncAnimation(fig, animate, range(int(start / step), int(end / step)))
     show()
+    del anim
